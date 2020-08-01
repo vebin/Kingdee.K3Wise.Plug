@@ -1,0 +1,80 @@
+﻿K3DoNetPlug.Model实现了Ui至Model的双向绑定，即MVVM模式。
+通过对Model的Attribute描述订立绑定规则，根据绑定规则可以实现数据的双向绑定。
+1、核心类为K3FieldAttribute，对Model设置Attribute的规则即可按规则进行双向绑定。
+例如Model
+public class StudentModel
+{
+	//a.指定绑定Ui的字段名为Name
+	[K3Field("Name")]
+	public string Name{get;set;}
+
+	//b.指定绑定的Ui的字段名为Name2，即Model与Ui字段字不相同
+	[K3Field("Name2")]
+	public string FullName{get;set;}
+
+	//不绑定K3Field，与a的效果一样的，自动绑定Model与Ui的名称一样
+	public string Sex{get;set;}
+
+	//该字段不进行绑定，即Ui与Model相互之前不作关联
+	[K3Field(K3FieldTypeEnum.Nothing)]
+	public string Address{get;set;}
+
+	//绑定的类型为基础资料
+	//ItemType为指定基础资料的类型
+	//K3FieldType指定绑定的方式，
+	//	K3FieldTypeEnum.Db_UiNameToModel把Ui基础资料的名称字段赋值给Model
+	//  K3FieldTypeEnum.Db_ModelNameToUi把Model基础资料的Name字段赋值给Ui，注意1:框架里已经处理了Name到基础资料的赋值转换，注意2：Name需要提前检查在基础资料里是否有相同的
+	[K3Field("Teacher",ItemType=ItemTypeEnum.职员,K3FieldType=new []{K3FieldTypeEnum.Db_UiNameToModel,K3FieldTypeEnum.Db_ModelNameToUi})]
+	public string Teacher{get;set;}
+}
+
+2、IK3FieldSetValueFunc为自定义Model与Ui相互负值时的数据转换扩展
+	接口内方法说明：
+	ModelToUiValue Model根据专入的值，进行数据转换后，传出并自动赋值给Ui
+	UiToModelValue Ui根据传入的值，进行数据转换后，传出并自动赋值给Model
+
+3、K3FieldTypeEnum 规则转换枚举
+
+4、如果进行双向绑定
+	单据头调用，注意|前面为返回值
+	void| this.Head.SetUiByModel(object model) 把Ui绑定到Model
+	T| this.Head.GetModelByUi<T>() 把Model绑定到Ui
+
+	单据体
+	void| this.Entity[0].SetUiByModel(System.Collections.IList list) 把列表型的Model绑定到单据体Ui
+	List<T>| this.Entity[0].GetModelByUi<T>() 把单据体Ui返回列表格的Model
+
+5、IK3FieldSetValueFunc自定义转换处理
+使用场景，如新增Bos基础资料，需要做换算数据。
+例子1：序号，程序里以0开始，界面以1开始
+public class RowK3FieldSetValueFunc：IK3FieldSetValueFunc
+{        
+		public object ModelToUiValue(object input)
+        {
+			//加1转为Ui显示
+            return (int)input+1;
+        }
+
+        public object UiToModelValue(object input)
+        {
+			//减1转为Model程序处理
+            return (int)input-1;
+        }
+}
+
+例子2:新增基础资料，不在系统级别的枚举中
+public class NewBaseDataK3FieldSetValueFunc：IK3FieldSetValueFunc
+{        
+		public object ModelToUiValue(object input)
+        {
+			//input传入的是Name
+			//用Name查出基础资料的Number
+			//返回Number自动赋值给Ui
+        }
+
+        public object UiToModelValue(object input)
+        {
+			//input传入的是Name
+			//直接返回给Model
+        }
+}

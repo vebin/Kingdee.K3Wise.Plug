@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A09A080B-7E5F-471B-84C4-677945D81EC7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>K3DoNetPlug</RootNamespace>
+    <AssemblyName>K3DoNetPlug</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <TargetFrameworkSubset>
+    </TargetFrameworkSubset>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <StartupObject>
+    </StartupObject>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>true</RegisterForComInterop>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\WeightBarcodeTool\WeightBarcodeTool\Install\dll\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <RegisterForComInterop>true</RegisterForComInterop>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper">
+      <HintPath>CommBin\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\东飞\鑫东飞\SellManager\packages\Newtonsoft.Json.12.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseClassLister.cs" />
+    <Compile Include="BaseLister.cs" />
+    <Compile Include="BaseServer.cs" />
+    <Compile Include="Core\CoreException.cs" />
+    <Compile Include="Dal\BaseDataDao.cs" />
+    <Compile Include="CommonForm\FormBaseData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonForm\FormBaseData.Designer.cs">
+      <DependentUpon>FormBaseData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonForm\ItemEntity.cs" />
+    <Compile Include="DapperDbManager.cs" />
+    <Compile Include="Entity\BaseCell.cs" />
+    <Compile Include="Entity\ICellCore.cs" />
+    <Compile Include="Helper\AbstractClassFactory.cs" />
+    <Compile Include="BaseBiller.cs" />
+    <Compile Include="DBUnit.cs" />
+    <Compile Include="Entity\IColumnItem.cs" />
+    <Compile Include="Entity\IColunm.cs" />
+    <Compile Include="Entity\NewBillerCell.cs" />
+    <Compile Include="Entity\NewBillerColumn.cs" />
+    <Compile Include="Entity\NewBillerColumnItem.cs" />
+    <Compile Include="Entity\NewBillerEntityItem.cs" />
+    <Compile Include="Entity\NewBillerEntity.cs" />
+    <Compile Include="Entity\NewBillerRow.cs" />
+    <Compile Include="Entity\NewBillerRowItem.cs" />
+    <Compile Include="Entity\OldBillerCell.cs" />
+    <Compile Include="Entity\OldBillerColumnItem.cs" />
+    <Compile Include="Entity\OldBillerColumn.cs" />
+    <Compile Include="Entity\OldBillerEntity.cs" />
+    <Compile Include="Entity\OldBillerEntityItem.cs" />
+    <Compile Include="Entity\OldBillerRowItem.cs" />
+    <Compile Include="Entity\OldBillerRow.cs" />
+    <Compile Include="EventDelegate.cs" />
+    <Compile Include="Entity\ICell.cs" />
+    <Compile Include="Entity\IEntity.cs" />
+    <Compile Include="Entity\IEntityItem.cs" />
+    <Compile Include="Head\IHead.cs" />
+    <Compile Include="Head\NewBillerHead.cs" />
+    <Compile Include="Head\NewBillerHeadItem.cs" />
+    <Compile Include="Helper\ModelUtil.cs" />
+    <Compile Include="Helper\QueryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helper\QueryView.Designer.cs">
+      <DependentUpon>QueryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\Util.cs" />
+    <Compile Include="Model\BaseDataMoreModel.cs" />
+    <Compile Include="Model\IK3FieldSetValueFunc.cs" />
+    <Compile Include="Model\K3FieldSetValueFuncDefault.cs" />
+    <Compile Include="Model\K3FieldTypeEnum.cs" />
+    <Compile Include="IBiller.cs" />
+    <Compile Include="IItemInfo.cs" />
+    <Compile Include="Entity\IRowItem.cs" />
+    <Compile Include="Entity\IRow.cs" />
+    <Compile Include="Head\OldBillHeadItem.cs" />
+    <Compile Include="Helper\NewbillerClassFactory.cs" />
+    <Compile Include="Helper\OldBillerClassFactory.cs" />
+    <Compile Include="Helper\SingleClassFactory.cs" />
+    <Compile Include="ItemTypeEnum.cs" />
+    <Compile Include="Model\K3FieldAttribute.cs" />
+    <Compile Include="K3Login.cs" />
+    <Compile Include="Model\BaseDataModel.cs" />
+    <Compile Include="Server\Head.cs" />
+    <Compile Include="Server\HeadItem.cs" />
+    <Compile Include="ToolsButton\IToolsButton.cs" />
+    <Compile Include="ToolsButton\NewBillerToolsButton.cs" />
+    <Compile Include="ToolsButton\OldBillerToolsButton.cs" />
+    <Compile Include="TypeBiller.cs" />
+    <Compile Include="Helper\ExceptionInitBillerFail.cs" />
+    <Compile Include="Head\OldBillerHead.cs" />
+    <Compile Include="Head\IHeadItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Helper\VBDoNetPlugInstance.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CommonForm\FormBaseData.resx">
+      <DependentUpon>FormBaseData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helper\QueryView.resx">
+      <DependentUpon>QueryView.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ActiveBarLibrary">
+      <Guid>{0F987290-56EE-11D0-9C43-00A0C90F29FC}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="ADODB">
+      <Guid>{00000201-0000-0010-8000-00AA006D2EA4}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="k3BillTransfer">
+      <Guid>{C876CD0F-E4C2-11D5-9FA9-00E04C54B3B6}</Guid>
+      <VersionMajor>3</VersionMajor>
+      <VersionMinor>13</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="K3ClassEvents">
+      <Guid>{BA3A7E83-EF81-47BF-BE5B-99C294267B53}</Guid>
+      <VersionMajor>4</VersionMajor>
+      <VersionMinor>60</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="k3Login">
+      <Guid>{DF172D4A-57B6-4922-BE3E-A9B48D333384}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="KFO">
+      <Guid>{BD29F730-5BDA-11D1-9C2A-127658000000}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBDoNetPlug">
+      <Guid>{B8E2331D-9EF2-4D07-9BFB-DC28F53A6E59}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\Model使用说明.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

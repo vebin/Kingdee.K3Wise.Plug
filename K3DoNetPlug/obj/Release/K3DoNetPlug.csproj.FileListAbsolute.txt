@@ -1,0 +1,17 @@
+D:\Project\WeightBarcodeTool\WeightBarcodeTool\Install\dll\K3DoNetPlug.dll.config
+D:\Project\WeightBarcodeTool\WeightBarcodeTool\Install\dll\K3DoNetPlug.dll
+D:\Project\WeightBarcodeTool\WeightBarcodeTool\Install\dll\K3DoNetPlug.tlb
+D:\Project\K3DoNetPlug\K3Plug\K3DoNetPlug\obj\Release\Interop.ActiveBarLibrary.dll
+D:\Project\K3DoNetPlug\K3Plug\K3DoNetPlug\obj\Release\Interop.k3BillTransfer.dll
+D:\Project\K3DoNetPlug\K3Plug\K3DoNetPlug\obj\Release\Interop.K3ClassEvents.dll
+D:\Project\K3DoNetPlug\K3Plug\K3DoNetPlug\obj\Release\Interop.k3Login.dll
+D:\Project\K3DoNetPlug\K3Plug\K3DoNetPlug\obj\Release\Interop.KFO.dll
+D:\Project\K3DoNetPlug\K3Plug\K3DoNetPlug\obj\Release\Interop.VBDoNetPlug.dll
+D:\Project\K3DoNetPlug\K3Plug\K3DoNetPlug\obj\Release\K3DoNetPlug.csproj.ResolveComReference.cache
+D:\Project\K3DoNetPlug\K3Plug\K3DoNetPlug\obj\Release\K3DoNetPlug.CommonForm.FormBaseData.resources
+D:\Project\K3DoNetPlug\K3Plug\K3DoNetPlug\obj\Release\K3DoNetPlug.Helper.QueryView.resources
+D:\Project\K3DoNetPlug\K3Plug\K3DoNetPlug\obj\Release\K3DoNetPlug.csproj.GenerateResource.cache
+D:\Project\K3DoNetPlug\K3Plug\K3DoNetPlug\obj\Release\K3DoNetPlug.csproj.CoreCompileInputs.cache
+D:\Project\K3DoNetPlug\K3Plug\K3DoNetPlug\obj\Release\K3DoNetPlug.csproj.CopyComplete
+D:\Project\K3DoNetPlug\K3Plug\K3DoNetPlug\obj\Release\K3DoNetPlug.dll
+D:\Project\K3DoNetPlug\K3Plug\K3DoNetPlug\obj\Release\K3DoNetPlug.csprojAssemblyReference.cache
