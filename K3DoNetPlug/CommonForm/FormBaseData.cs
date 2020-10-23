@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Forms;
 
@@ -11,7 +12,7 @@ namespace K3DoNetPlug.CommonForm
 {
     public partial class FormBaseData : Form
     {
-        public List<int> ItemIDList { get; private set; }
+        public List<ItemEntity> ItemIDList { get; private set; }
 
         public DBUnit DBUnitInstances { get;private set; }
 
@@ -23,11 +24,18 @@ namespace K3DoNetPlug.CommonForm
             InitializeComponent();
         }
 
-        public static List<int> Show(DBUnit dbUnit,int icclassTypeID)
+        public static List<ItemEntity> Show(DBUnit dbUnit,int icclassTypeID)
+        {
+            return Show(dbUnit, icclassTypeID, null);
+        }
+        public static List<ItemEntity> Show(DBUnit dbUnit, int icclassTypeID,List<ItemEntity> selectedList)
         {
             FormBaseData form = new FormBaseData(dbUnit);
             form.ICClassTypeID = icclassTypeID;
-            form.ItemIDList = new List<int>();
+            form.ItemIDList = new List<ItemEntity>();
+
+            if(selectedList!=null) form.ItemIDList = selectedList;
+
             form.ShowDialog();
             return form.ItemIDList;
         }
@@ -192,6 +200,7 @@ namespace K3DoNetPlug.CommonForm
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
+            this.ItemIDList = new List<ItemEntity>();
             this.Close();
         }
 
@@ -199,7 +208,14 @@ namespace K3DoNetPlug.CommonForm
         {
             for(int rowIndex=0;rowIndex<dataGridViewSelected.Rows.Count;rowIndex++)
             {
-                this.ItemIDList.Add(Convert.ToInt32(dataGridViewSelected.Rows[rowIndex].Cells["SFItemID"].Value));
+                var row= dataGridViewSelected.Rows[rowIndex];
+
+                this.ItemIDList.Add(new ItemEntity()
+                {
+                    ItemID = Convert.ToInt32(row.Cells["SFItemID"].Value),
+                    Name = row.Cells["SFName"].Value.ToString(),
+                    Number = row.Cells["SFNumber"].Value.ToString()
+                });
             }
             this.Close();
         }
